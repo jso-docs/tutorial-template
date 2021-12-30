@@ -9,15 +9,15 @@ This website uses the structure of the root website under it to avoid duplicatin
 Here are the steps to run this locally:
 
 - Run `bash getdeps.sh` to clone what is needed.
+- Install `npm`
+- Run `npm install`
+- Run `npm run css-build`
 - Open julia, activate and instantiate the environment.
   ```
   julia> # press ]
   pkg> activate .
   (...) pkg> instantiate
   ```
-- Install `npm`
-- Run `npm install`
-- Run `npm run css-build`
 - Use `Franklin` and `serve`
   ```
   pkg> # press backspace
