@@ -22,3 +22,16 @@ using LinearAlgebra
 norm(A * x - b), norm(x .- 1)
 ```
 
+Plotting
+
+```julia:ex3
+using Plots
+
+x = rand(3)
+y = rand(3)
+plot(x, y)
+png(joinpath(@OUTPUT, "myplot"))
+```
+
+\fig{myplot.png}
+
