@@ -26,9 +26,11 @@ Here are the steps to run this locally:
   ```
 - Go to https://localhost:8000 to check that everything is running
 - Edit `index.md` and `index.jl` as needed.
+- - If you `pkg> add` any package, add a `[compat]` upper bound.
 
 ## Publishing
 
+- Make sure that dependencies have upper bounds in the `[compat]` section of `Project.toml`.
 - Push to GitHub inside the jso-docs organization.
 - Enable building github pages on the settings.
 - Check that it went well.
