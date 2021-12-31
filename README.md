@@ -24,9 +24,10 @@ Here are the steps to run this locally:
   julia> using Franklin
   julia> serve()
   ```
-- Go to https://localhost:8000 to check that everything is running
+- Go to https://localhost:8000 to check that everything is running.
+- Edit `config.md` and change `tutorial-template` to the name of this repo.
 - Edit `index.md` and `index.jl` as needed.
-- - If you `pkg> add` any package, add a `[compat]` upper bound.
+- If you `pkg> add` any package, add a `[compat]` upper bound.
 
 ## Publishing
 
