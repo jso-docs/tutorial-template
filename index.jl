@@ -31,5 +31,3 @@ plot(x, y)
 png(joinpath(@OUTPUT, "myplot"))
 
 # {{ rfig myplot.png Example of plot and description }}
-
-1

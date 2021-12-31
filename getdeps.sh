@@ -5,6 +5,6 @@ unzip main.zip
 if [ -z "$CI" ]; then
   mv -f jso-docs.github.io-main/{_assets,_layout,_sass,_libs,package.json,config.md,utils.jl} .
 else
-  mv -f jso-docs.github.io-main/{_layout,_libs,config.md,utils.jl} .
+  mv -f jso-docs.github.io-main/{_layout,_libs,_sass,package.json,config.md,utils.jl} .
 fi
 rm -rf jso-docs.github.io-main main.zip
