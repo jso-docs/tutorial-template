@@ -17,7 +17,11 @@ x = A \ b
 using LinearAlgebra
 norm(A * x - b), norm(x .- 1)
 
-# Plotting
+#=
+## Plotting
+
+Use `joinpath(@OUTPUT, "filename")` to save the image in the right place and use `{{ rfig filename.ext Caption of image }}` to add the image afterwards.
+=#
 
 using Plots
 
@@ -26,4 +30,6 @@ y = rand(3)
 plot(x, y)
 png(joinpath(@OUTPUT, "myplot"))
 
-# \fig{myplot.png}
+# {{ rfig myplot.png Example of plot and description }}
+
+1
