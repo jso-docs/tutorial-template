@@ -1,1 +1,0 @@
-Process(`echo hi plots/hi.txt`, ProcessExited(0))

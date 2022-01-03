@@ -26,28 +26,14 @@ norm(A * x - b), norm(x .- 1)
 
 Use `joinpath(@OUTPUT, "filename")` to save the image in the right place and use `{{ rfig filename.ext Caption of image }}` to add the image afterwards.
 
+```julia:ex3
 using Plots
 
-```julia:ex3
 x = rand(3)
 y = rand(3)
-```
-
 plot(x, y)
-
-```julia:ex4
-isdir("plots") || mkdir("plots")
-run(`echo hi plots/hi.txt`)
-```
-
-png(joinpath("plots", "myplot"))
-
-```julia:ex5
+png(joinpath("__site/assets", "myplot"))
 pwd()
-```
-
-```julia:ex6
-run(`cat plots/hi.txt`)
 ```
 
 {{ rfig myplot.png Example of plot and description }}

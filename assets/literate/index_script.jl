@@ -7,13 +7,11 @@ x = A \ b
 using LinearAlgebra
 norm(A * x - b), norm(x .- 1)
 
+using Plots
+
 x = rand(3)
 y = rand(3)
-
-isdir("plots") || mkdir("plots")
-run(`echo hi plots/hi.txt`)
-
+plot(x, y)
+png(joinpath("__site/assets", "myplot"))
 pwd()
-
-run(`cat plots/hi.txt`)
 
