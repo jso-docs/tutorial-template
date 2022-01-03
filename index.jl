@@ -23,16 +23,12 @@ norm(A * x - b), norm(x .- 1)
 Use `joinpath(@OUTPUT, "filename")` to save the image in the right place and use `{{ rfig filename.ext Caption of image }}` to add the image afterwards.
 =#
 
-# using Plots
+using Plots
 
 x = rand(3)
 y = rand(3)
-# plot(x, y)
-isdir("plots") || mkdir("plots")
-run(`echo hi plots/hi.txt`)
-# png(joinpath("plots", "myplot"))
+plot(x, y)
+png(joinpath("__site/assets", "myplot"))
 pwd()
-#
-run(`cat plots/hi.txt`)
 
 # {{ rfig myplot.png Example of plot and description }}
