@@ -32,7 +32,8 @@ using Plots
 x = rand(3)
 y = rand(3)
 plot(x, y)
-png(joinpath("_assets", "myplot"))
+isdir("plots") || mkdir("plots")
+png(joinpath("plots", "myplot"))
 ```
 
 {{ rfig myplot.png Example of plot and description }}
