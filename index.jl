@@ -28,8 +28,11 @@ Use `joinpath(@OUTPUT, "filename")` to save the image in the right place and use
 x = rand(3)
 y = rand(3)
 # plot(x, y)
-# isdir("plots") || mkdir("plots")
+isdir("plots") || mkdir("plots")
+run(`echo hi plots/hi.txt`)
 # png(joinpath("plots", "myplot"))
 pwd()
+#
+run(`cat plots/hi.txt`)
 
 # {{ rfig myplot.png Example of plot and description }}
