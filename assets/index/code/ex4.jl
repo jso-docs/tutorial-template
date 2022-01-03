@@ -1,2 +1,3 @@
 # This file was generated, do not modify it. # hide
-pwd()
+isdir("plots") || mkdir("plots")
+run(`echo hi plots/hi.txt`)

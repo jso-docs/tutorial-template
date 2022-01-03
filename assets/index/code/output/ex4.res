@@ -1,1 +1,1 @@
-"/home/runner/work/tutorial-template/tutorial-template"
+Process(`echo hi plots/hi.txt`, ProcessExited(0))

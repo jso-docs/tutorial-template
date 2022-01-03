@@ -34,11 +34,20 @@ y = rand(3)
 ```
 
 plot(x, y)
-isdir("plots") || mkdir("plots")
-png(joinpath("plots", "myplot"))
 
 ```julia:ex4
+isdir("plots") || mkdir("plots")
+run(`echo hi plots/hi.txt`)
+```
+
+png(joinpath("plots", "myplot"))
+
+```julia:ex5
 pwd()
+```
+
+```julia:ex6
+run(`cat plots/hi.txt`)
 ```
 
 {{ rfig myplot.png Example of plot and description }}
