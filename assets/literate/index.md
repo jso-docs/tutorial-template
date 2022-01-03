@@ -24,7 +24,7 @@ norm(A * x - b), norm(x .- 1)
 
 ## Plotting
 
-Use `joinpath(@OUTPUT, "filename")` to save the image in the right place and use `{{ rfig filename.ext Caption of image }}` to add the image afterwards.
+Use `joinpath("__site/assets", filename)` as the path to save the image in the right place and use `{{ rfig filename.ext Caption of image }}` to add the image afterwards.
 
 ```julia:ex3
 using Plots
