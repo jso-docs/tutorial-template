@@ -7,11 +7,8 @@ x = A \ b
 using LinearAlgebra
 norm(A * x - b), norm(x .- 1)
 
-using Plots
-
 x = rand(3)
 y = rand(3)
-plot(x, y)
-isdir("plots") || mkdir("plots")
-png(joinpath("plots", "myplot"))
+
+pwd()
 
