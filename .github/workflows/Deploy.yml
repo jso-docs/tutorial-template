@@ -45,6 +45,8 @@ jobs:
             using NodeJS; run(`$(npm_cmd()) install`); run(`$(npm_cmd()) run css-build`);
             using Franklin;
             optimize(prerender=false, suppress_errors=false)'
+    - name: ls
+      run: ls -R
     - name: Deploy (preview)
       if: github.event_name == 'pull_request' && github.repository == github.event.pull_request.head.repo.full_name # if this build is a PR build and the PR is NOT from a fork
       uses: JamesIves/github-pages-deploy-action@releases/v3
