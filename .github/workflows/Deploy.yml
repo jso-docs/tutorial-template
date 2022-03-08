@@ -14,21 +14,24 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+
     - name: Checkout
       uses: actions/checkout@v2
       with:
         persist-credentials: false
-    # To have a preview you need to set up a netlify domain and to have access to the repo, so it can't be done automatically
-    # - name: Fix URLs for PR preview deployment (pull request previews)
-    #   if: github.event_name == 'pull_request'
-    #   run: |
-    #     echo "PREVIEW_FRANKLIN_WEBSITE_URL=https://missing.netlify.app/previews/PR${{ github.event.number }}/" >> $GITHUB_ENV
-    #     echo "PREVIEW_FRANKLIN_PREPATH=previews/PR${{ github.event.number }}" >> $GITHUB_ENV
+
+    - name: Fix URLs for PR preview deployment (pull request previews)
+      if: github.event_name == 'pull_request'
+      run: |
+        echo "PREVIEW_FRANKLIN_WEBSITE_URL=https://tutorial-template.netlify.app/previews/PR${{ github.event.number }}/" >> $GITHUB_ENV
+        echo "PREVIEW_FRANKLIN_PREPATH=previews/PR${{ github.event.number }}" >> $GITHUB_ENV
+
     # NOTE: Python is necessary for the pre-rendering (minification) step
     - name: Install python
       uses: actions/setup-python@v2
       with:
         python-version: '3.9'
+
     # NOTE: Here you can install dependencies such as matplotlib if you use
     # packages such as PyPlot.
     # - run: pip install matplotlib
@@ -36,8 +39,10 @@ jobs:
       uses: julia-actions/setup-julia@v1
       with:
         version: 1
+
     - name: Get dependencies from jso-docs.github.io
       run: bash getdeps.sh
+
     - name: Build
       env:
         GKSwstype: "100" #https://discourse.julialang.org/t/generation-of-documentation-fails-qt-qpa-xcb-could-not-connect-to-display/60988
@@ -46,16 +51,18 @@ jobs:
             using NodeJS; run(`$(npm_cmd()) install`); run(`$(npm_cmd()) run css-build`);
             using Franklin;
             optimize(prerender=false, suppress_errors=false)'
-    # - name: Deploy (preview)
-    #   if: github.event_name == 'pull_request' && github.repository == github.event.pull_request.head.repo.full_name # if this build is a PR build and the PR is NOT from a fork
-    #   uses: JamesIves/github-pages-deploy-action@releases/v3
-    #   with:
-    #       BRANCH: gh-preview # The branch where the PRs previews are stored
-    #       FOLDER: __site
-    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #       TARGET_FOLDER: "previews/PR${{ github.event.number }}" # The website preview is going to be stored in a subfolder
+
+    - name: Deploy (preview)
+      if: github.event_name == 'pull_request' && github.repository == github.event.pull_request.head.repo.full_name # if this build is a PR build and the PR is NOT from a fork
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+          BRANCH: gh-preview # The branch where the PRs previews are stored
+          FOLDER: __site
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_FOLDER: "previews/PR${{ github.event.number }}" # The website preview is going to be stored in a subfolder
+
     - name: Deploy (main)
-      if: github.event_name == 'push'
+      if: github.event_name != 'pull_request'
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
