@@ -33,13 +33,25 @@ for file in files_to_keep_updated
   )
 end
 
+# Change the preview deploy branch
+Emporium.run_on_folders(
+  (; basename = "", kwargs...) -> begin
+    new_deploy = replace(read(".github/workflows/Deploy.yml", String), "tutorial-template" => basename)
+    open(".github/workflows/Deploy.yml", "w") do io
+      write(io, new_deploy)
+    end
+    run(`git add .github/workflows/Deploy.yml`)
+  end,
+  clone_dir,
+)
+
 # Branch and commit
 branch = Dates.format(now(), "Y-mm-dd-") * bytes2hex(rand(UInt8, 4))
 Emporium.run_on_folders(
   (; basename = "", dirname = "", kwargs...) -> begin
     if Emporium.git_has_to_commit()
       run(`git checkout -b $branch`)
-      run(`git commit -m ":wrench: Updating files to keep up with template"`)
+      run(`git commit -am ":wrench: Updating files to keep up with template"`)
       run(`git push -u origin $branch`)
       Emporium.create_pull_request(
         "jso-docs/$basename",
@@ -57,5 +69,5 @@ Emporium.run_on_folders(
   clone_dir,
 )
 
-# Clean up
+# # Clean up
 run(`rm -rf $clone_dir`)
