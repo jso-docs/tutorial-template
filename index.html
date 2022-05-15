@@ -3,10 +3,10 @@ b &#61; A * ones&#40;5&#41;
 x &#61; A \ b</code></pre><pre><code class="plaintext code-output">5-element Vector{Float64}:
  0.9999999999999993
  1.0
- 1.0
  1.0000000000000007
- 1.0</code></pre> <p>Testing</p> <pre><code class=language-julia >using LinearAlgebra
-norm&#40;A * x - b&#41;, norm&#40;x .- 1&#41;</code></pre><pre><code class="plaintext code-output">(0.0, 9.42055475210265e-16)</code></pre>
+ 1.0000000000000009
+ 0.9999999999999984</code></pre> <p>Testing</p> <pre><code class=language-julia >using LinearAlgebra
+norm&#40;A * x - b&#41;, norm&#40;x .- 1&#41;</code></pre><pre><code class="plaintext code-output">(7.771561172376096e-16, 2.022922624776835e-15)</code></pre>
 <h2 id=plotting ><a href="#plotting" class=header-anchor >Plotting</a></h2>
 <p>Use <code>joinpath&#40;&quot;__site/assets&quot;, filename&#41;</code> as the path to save the image in the right place and use <code>&#123;&#123; rfig filename.ext Caption of image &#125;&#125;</code> to add the image afterwards. It is a good idea to use <code># hide</code> so the save command doesn&#39;t appear. See the example below.</p>
 <pre><code class=language-julia >using Plots
@@ -90,7 +90,7 @@ plot&#40;x, y&#41;</code></pre>
     <footer class=footer >
       <div class="content has-text-centered is-small">
         &copy; Abel Soares Siqueira. <br>
-        Last modified: May 08, 2022.<br>
+        Last modified: May 15, 2022.<br>
         <a ckass=link  href="https://github.com/jso-docs/">jso-docs at GitHub</a>
       </div>
     </footer>
