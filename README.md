@@ -31,7 +31,7 @@ Here are the steps to run this locally:
 ## Publishing
 
 - Make sure that dependencies have upper bounds in the `[compat]` section of `Project.toml`.
-- Push to GitHub inside the jso-docs organization.
+- Push to GitHub inside the https://github.com/jso-docs organization.
 - Enable building github pages on the settings.
 - Check that it went well.
-- Create a PR to https://github.com/jso-docs/jso-docs.github.io adding your tutorial to `_data/docs.json`.
+- Create a PR to https://github.com/JuliaSmoothOptimizers/JuliaSmoothOptimizers.github.io adding your tutorial to `_data/docs.json`.
