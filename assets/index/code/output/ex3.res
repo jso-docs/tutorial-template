@@ -1,1 +1,1 @@
-nothing
+"__site/assets/myplot.png"
