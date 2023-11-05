@@ -2,11 +2,11 @@
 b &#61; A * ones&#40;5&#41;
 x &#61; A \ b</code></pre><pre><code class="plaintext code-output">5-element Vector{Float64}:
  0.9999999999999996
- 1.0000000000000002
- 1.0000000000000002
  1.0000000000000004
- 0.9999999999999994</code></pre> <p>Testing</p> <pre><code class=language-julia >using LinearAlgebra
-norm&#40;A * x - b&#41;, norm&#40;x .- 1&#41;</code></pre><pre><code class="plaintext code-output">(0.0, 8.95090418262362e-16)</code></pre>
+ 0.9999999999999999
+ 0.9999999999999996
+ 1.0000000000000002</code></pre> <p>Testing</p> <pre><code class=language-julia >using LinearAlgebra
+norm&#40;A * x - b&#41;, norm&#40;x .- 1&#41;</code></pre><pre><code class="plaintext code-output">(5.438959822042073e-16, 8.08254562088053e-16)</code></pre>
 <h2 id=plotting ><a href="#plotting" class=header-anchor >Plotting</a></h2>
 <p>Use <code>joinpath&#40;&quot;__site/assets&quot;, filename&#41;</code> as the path to save the image in the right place and use <code>&#123;&#123; rfig filename.ext Caption of image &#125;&#125;</code> to add the image afterwards. It is a good idea to use <code># hide</code> so the save command doesn&#39;t appear. See the example below.</p>
 <pre><code class=language-julia >using Plots
